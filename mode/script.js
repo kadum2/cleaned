@@ -325,14 +325,6 @@ function insertLocs (dataList,confType ,pin, thirdOption){
                 img.style.backgroundPosition = "center"
                 afterImgsElements.push(img)
             })
-
-            // for(let i = 0; i<4; i++){
-            //     let img = document.createElement("img")
-            //     img.style.backgroundImage = `url('../${e.afterImgs[i]}')`
-            //     img.style.backgroundSize = "cover"
-            //     img.style.backgroundPosition = "center"
-            //     afterImgsElements.push(img)
-            // }
         }
 
         linkedList.push({m:m, beforeImgsElements: beforeImgsElements, id: e._id, afterImgsElements: afterImgsElements, bName: e.bName, aNames: e.aNames, thirdOption,dateOfPlanting:e.dateOfPlanting, moreDetails: e.moreDetails})
@@ -340,88 +332,6 @@ function insertLocs (dataList,confType ,pin, thirdOption){
 
 }
 
-
-// /////insert data; make function to insert data 
-// let linkedList = []
-// let beforeImgsElements = []
-// let afterImgsElements = []
-
-// function insertLocs (dataList, mode){
-
-//     ////make marker, insert in map, insert in linkedlist; make the label functionality 
-//     ////make imgs, insert in containers (profile), insert in linkedlist
-//     ////insert id in linked list 
-
-//     dataList.forEach(e=>{
-//         let m = L.marker(e.coords, {
-//             icon: uncon
-//         }).addTo(map);
-
-//         m.addEventListener("click", (e)=>{
-//             linkedList.forEach(ee=>{
-//                 if(ee.m == e.target){
-                    
-//                     ////beforeImgs inserting; three imgs
-//                     document.querySelector("#beforeImgs").innerHTML = ""
-//                     for(let i = 0; i<3; i++){
-//                         document.querySelector("#beforeImgs").append(ee.beforeImgsElements[i])
-//                     }
-
-//                     //////before contributers 
-//                     ee.bSmType == "instagram"?ee.bSmType = "":ee.bSmType = ""
-
-//                     document.querySelector("#bContributers").innerHTML = `
-//                     <div class="contri">
-//                         <h4 class="contributerName">${ee.bName}</h4>
-//                         <img class="smType" style='background-image: url("../instagram-icon.jpg");    background-size: cover;
-//                         background-position: center;
-//                         height: 100%;
-//                         width: 100%;
-//                     '>
-//                         <h4 class="contributerUserName">${ee.bUserName}</h4>
-//                     </div>`
-
-//                     /////after; 
-//                     document.querySelector("#aContributers").innerHTML = `
-//                     `
-
-//                 }
-//             })
-//         })
-
-//         beforeImgsElements = []
-//         e.beforeImgs.forEach(e=>{
-//             let img = document.createElement("img")
-//             img.style.backgroundImage = `url('../${e}')`
-//             img.style.backgroundSize = "cover"
-//             img.style.backgroundPosition = "center"
-
-//             beforeImgsElements.push(img)
-            
-//         })
-
-//         if(e.afterImgs[0]){
-//             afterImgsElements = []
-
-//             for(let i = 0; i<4; i++){
-
-//                 let img = document.createElement("img")
-//                 img.style.backgroundImage = `url('../${e.afterImgs[i]}')`
-//                 img.style.backgroundSize = "cover"
-//                 img.style.backgroundPosition = "center"
-//                 afterImgsElements.push(img)
-//             }
-//         }
-
-//         linkedList.push({m:m, beforeImgsElements: beforeImgsElements, id: e.id, afterImgsElements: afterImgsElements, bName: e.bName, bUserName: e.bUserName, aNames: e.aNames, aUserNames: e.aUserNames})
-//     })
-
-//     if(mode){ ///insert buttons 
-//         console.log("adding buttons")
-
-//     }
-
-// }
 
 
 

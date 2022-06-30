@@ -35,10 +35,10 @@ app.use(express.static("./public-imgs"))
 app.use("/", express.static("./home"))
 
 app.use("/mode",(req, res, next)=>{
-    if(req.cookies.tModeAuth){
+    if(req.cookies.cModeAuth){
         ////send the full page
         console.log(req.cookies.token)
-        if(req.cookies.tModeAuth == process.env.MODEAUTH){
+        if(req.cookies.cModeAuth == process.env.MODEAUTH){
             console.log("will send the full page")
             next()
         }else{
@@ -66,7 +66,7 @@ app.post("/checkmode", (req, res)=>{
     console.log("check mode .......",req.body)
     /////check if true auth to give a set the cookie
     if(req.body.em == process.env.MODEAUTH){
-        res.cookie("tModeAuth", process.env.MODEAUTH);
+        res.cookie("cModeAuth", process.env.MODEAUTH);
         // res.redirect("/mode") ///make a reload instead
         res.redirect(req.get("/mode"))
     }else{
@@ -147,7 +147,7 @@ app.get("/con-unfinished", async (req, res)=>{
 
 app.get("/uncon-finished",(req, res)=>{
     ///check if valid token 
-    if(req.cookies.modeAuth == process.env.MODEAUTH){
+    if(req.cookies.cModeAuth == process.env.MODEAUTH){
         mongodb.connect(process.env.MONGOKEY, async (err, client)=>{
             let dbb = client.db()
             let result = await dbb.collection("uncon-finished").find().toArray()
@@ -159,7 +159,7 @@ app.get("/uncon-finished",(req, res)=>{
 })
 
 app.get("/uncon-unfinished",(req, res)=>{
-        if(req.cookies.modeAuth == process.env.MODEAUTH){
+        if(req.cookies.cModeAuth == process.env.MODEAUTH){
             mongodb.connect(process.env.MONGOKEY, async (err, client)=>{
                 let dbb = client.db()
                 let result = await dbb.collection("uncon-unfinished").find().toArray()
@@ -171,7 +171,7 @@ app.get("/uncon-unfinished",(req, res)=>{
 })
 
 app.get("/make-finished", (req, res)=>{
-    if(req.cookies.modeAuth == process.env.MODEAUTH){
+    if(req.cookies.cModeAuth == process.env.MODEAUTH){
         mongodb.connect(process.env.MONGOKEY, async (err, client)=>{
             let dbb = client.db()
             let result = await dbb.collection("finishing").find().toArray()
@@ -261,9 +261,12 @@ app.post("/con-unfinished", (req, res, next)=>{beforeImgs= []; afterImgs = []; n
     beforeImgs = newBImgs
     afterImgs = newAImgs
 
+    console.log(beforeImgs)
+    console.log(afterImgs)
+
 
     ////if mode save it in con; else in uncon 
-    if(req.cookies.modeAuth == process.env.MODEAUTH){
+    if(req.cookies.cModeAuth == process.env.MODEAUTH){
         if(typeof beforeImgs[0] == "string"){
             console.log("valid data of the con unfinished...")
 
@@ -317,7 +320,7 @@ app.post("/con-finished", (req, res, next)=>{beforeImgs= []; afterImgs = []; nex
     
 
     ////if mode save it in con; else in uncon 
-    if(req.cookies.modeAuth == process.env.MODEAUTH){
+    if(req.cookies.cModeAuth == process.env.MODEAUTH){
         if(typeof beforeImgs[0] == "string" &&typeof afterImgs[0] == "string" ){
             console.log("valid data")
 
@@ -351,7 +354,7 @@ app.post("/send-mode", async (req, res)=>{
     console.log("...........send mode.............")
     console.log(req.body)
     console.log(typeof req.body.toDelete)
-    if(req.cookies.modeAuth == process.env.MODEAUTH){
+    if(req.cookies.cModeAuth == process.env.MODEAUTH){
 
 
 
@@ -594,7 +597,7 @@ app.post("/make-finishing", (req, res, next)=>{beforeImgs= []; afterImgs = []; n
                 mongodb.connect(process.env.MONGOKEY, async (err, client)=>{
                 let dbb = client.db()
 
-            if(req.cookies.modeAuth == process.env.MODEAUTH){
+            if(req.cookies.cModeAuth == process.env.MODEAUTH){
                 let found = await dbb.collection("con-unfinished").findOne({_id: ObjectID(req.body.id)})
 
                 await dbb.collection("con-finished").insertOne({
