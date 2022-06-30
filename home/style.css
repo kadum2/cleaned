@@ -73,6 +73,11 @@ header {
             align-items: center;
             border-radius: .6rem;
         }
+
+        main img{
+            height: 1rem;
+        }
+
         
         #beforeandafter{
             justify-content: space-between;

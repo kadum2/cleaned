@@ -204,8 +204,8 @@ function insertLocs (dataList, pin, thirdOption){
 
     dataList.forEach(e=>{
 
-        let pBName = `<p>${e.bName}</p>`
-        let pANames= e.aNames.map(ee=>{return "<p>"+ee +"</p>"})
+        let pBName = `<p> <img src="./Telegram-Logo.png" alt=""> ${e.bName}</p>`
+        let pANames= e.aNames.map(ee=>{return "<p> <img src='./Telegram-Logo.png'>"+ee +"</p>"})
         pANames =  pANames.join("").replace(/,/g, '')
     
 
