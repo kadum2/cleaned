@@ -247,7 +247,7 @@ function insertLocs (dataList, pin, thirdOption){
                     ///////more info display; 
                     document.querySelector("#date").textContent = ""
                     document.querySelector("#details").textContent = ""
-                    ee.dateOfPlanting?document.querySelector("#date").textContent = ee.dateOfPlanting:null
+                    ee.dateOfCleaning?document.querySelector("#date").textContent = ee.dateOfCleaning:null
                     ee.moreDetails?document.querySelector("#details").textContent = ee.moreDetails:null
 
                     currentM = ee.m
@@ -315,7 +315,7 @@ function insertLocs (dataList, pin, thirdOption){
             // }
         }
 
-        linkedList.push({m:m, beforeImgsElements: beforeImgsElements, id: e._id, afterImgsElements: afterImgsElements, bName: e.bName, aNames: e.aNames, thirdOption,dateOfPlanting:e.dateOfPlanting, moreDetails: e.moreDetails})
+        linkedList.push({m:m, beforeImgsElements: beforeImgsElements, id: e._id, afterImgsElements: afterImgsElements, bName: e.bName, aNames: e.aNames, thirdOption,dateOfCleaning:e.dateOfCleaning, moreDetails: e.moreDetails})
     })
 
 }
@@ -392,7 +392,7 @@ document.querySelector("#displayLines").innerHTML = `
 `
 document.querySelector(".form").innerHTML = `
 <div id="addUnfinished">
-<h4>Add a place that needs planting </h4>
+<h4>Add a place that needs cleaning </h4>
 <button class="addCoords" id="addUnconUnfinishedCoords">select place</button>
 <label for="addBImgs">add place images</label>
 <input type="file" id="addBImgs" name="addBImgs" class="addBImgs" multiple>
@@ -412,42 +412,44 @@ document.querySelector(".form").innerHTML = `
 
 <input type="text" class="names" placeholder="tele userName, name, name">
 
-<input type="text" placeholder="more info; type and nuber, ..." class="moreDetails">
-<input type="date" class="dateOfPlanting">
+<input type="date" class="dateOfCleaning">
 
 
 <button class="send" id="sendFinished">send</button>
 </div>
 
 <div id="makeFinished">
-<h4>plant the selected place </h4>
+<h4>clean the selected place </h4>
 <span></span>
 <label for="addAImgs">after</label>
 <input type="file" id="addAImgs" name="addAImgs" class="addAImgs" multiple>
 <input type="text" class="names" placeholder="name, userName,
 name, userName">
 
-<input type="text" placeholder="more info; type and number of plants, ..." class="moreDetails">
-<input type="date" class="dateOfPlanting">
+<input type="date" class="dateOfCleaning">
 
-<button class="send" id="sendFinishing" disabled="true">ارسال</button>
+<button class="send" id="sendFinishing" disabled="true">send</button>
 </div>
 `
 document.querySelector("footer").innerHTML = `
 <div class="features">
 <span class="black"></span>
 <h2>website features; goal and use </h2>
-<div> <img src="./لقطة الشاشة 2022-06-23 185255.png" alt=""> confirm the progress in planting campaigns</div>
+<div> <img src="./لقطة الشاشة 2022-06-23 185255.png" alt=""> confirm the progress in cleaning campaigns</div>
 <div> <img src="./لقطة الشاشة 2022-06-23 185458.png" alt=""><img src="./marker-icon-2x-green.png"
         alt=""><img src="./marker-icon-2x-red.png" alt=""> add pins </div>
-<div><img src="./لقطة الشاشة 2022-06-23 185510.png" alt=""><img src="./marker-icon-2x-red.png" alt=""> planting the selected place </div>
+<div>
+<img src="./marker-icon-2x-green.png" alt="">
+<img src="./download-removebg-preview.png" alt="">
+
+<img src="./لقطة الشاشة 2022-06-23 185510.png" alt=""><img src="./marker-icon-2x-red.png" alt=""> cleaning the selected place </div>
 </div>
 <div id="info">
 <div class="achievements">
     <span class="green"></span>
     <h2>project results</h2>
     <li>planted <img src="./marker-icon-2x-green.png" alt=""><b>1</b></li>
-    <li>need planting <img src="./marker-icon-2x-red.png" alt=""> <b>2</b></li>
+    <li>need cleaning <img src="./marker-icon-2x-red.png" alt=""> <b>2</b></li>
     <li>number of contributers; ???</li>
     <img src="./284807325_340145658273227_1050030653915922194_n.jpg" alt="">
 </div>
@@ -468,11 +470,11 @@ document.querySelector("footer").innerHTML = `
 <div class="additionalInfo">
 <ul>
     <li><img src="../marker-icon-2x-green.png">planted</li>
-    <li><img src="../marker-icon-2x-red.png">need planting</li>
+    <li><img src="../marker-icon-2x-red.png">need cleaning</li>
     <li><img src="../marker-icon-2x-yellow.png">next campaign place</li>
-    <li>After adding a place (pin) on the map, this place is not added directly to the map; but do require confirming from the admin side (planting volunteer teams) </li>
+    <li>After adding a place (pin) on the map, this place is not added directly to the map; but do require confirming from the admin side (cleaning volunteer teams) </li>
     <li> @name = telegram username</li>
-    <li> the after planting photos have to be in the same angle of the before treeing photos; for the admin to make that both are the same place </li>            
+    <li> the after cleaning photos have to be in the same angle of the before treeing photos; for the admin to make that both are the same place </li>            
     <li class="redli">
     This site is a platform: means based on two parties: users and admins,
     The user sends the data and the admin has the authority to authenticate or delete
@@ -507,67 +509,69 @@ document.querySelector("#displayLines").innerHTML = `
 <a href="https://coaster-route-polyline.herokuapp.com" target="_blank" class="suggest">اضافة مسارات</a>
 `
 document.querySelector(".form").innerHTML = `
-<div id="addUnfinished">
-<h4>اضافة مكان يحتاج الى زراعة </h4>
-<button class="addCoords" id="addUnconUnfinishedCoords">تحديد مكان</button>
-<label for="addBImgs">اضافة صور للمكان</label>
-<input type="file" id="addBImgs" name="addBImgs" class="addBImgs" multiple>
-<input type="text" class="names" placeholder="name or tele userName">
+            <div id="addUnfinished">
+                <h4>اضافة مكان يحتاج الى تنظيف </h4>
+                <button class="addCoords" id="addUnconUnfinishedCoords">تحديد مكان</button>
+                <label for="addBImgs">اضافة صور للمكان</label>
+                <input type="file" id="addBImgs" name="addBImgs" class="addBImgs" multiple>
+                <input type="text" class="names" placeholder="name or tele userName">
 
-<button class="send" id="sendUnfinished">ارسال</button>
-</div>
+                <button class="send" id="sendUnfinished">ارسال</button>
+            </div>
 
-<div id="addFinished">
-<h4>اضافة مكان تم زراعته </h4>
-<button class="addCoords" id="addUnconFinishedCoords">تحديد مكان</button>
-<label for="addAAImgs">بعد</label>
-<input type="file" id="addAAImgs" name="addAAImgs" class="addAImgs" multiple>
+            <div id="addFinished">
+                <h4>اضافة مكان تم تنظيفه </h4>
+                <button class="addCoords" id="addUnconFinishedCoords">تحديد مكان</button>
+                <label for="addAAImgs">بعد</label>
+                <input type="file" id="addAAImgs" name="addAAImgs" class="addAImgs" multiple>
 
-<label for="addBBImgs">قبل</label>
-<input type="file" id="addBBImgs" name="addBBImgs" class="addBImgs" multiple>
+                <label for="addBBImgs">قبل</label>
+                <input type="file" id="addBBImgs" name="addBBImgs" class="addBImgs" multiple>
 
-<input type="text" class="names" placeholder="tele userName, name, name">
-
-<input type="text" placeholder="تفاصيل اضافية: نوع و عدد النباتات, ..." class="moreDetails">
-<input type="date" class="dateOfPlanting">
+                <input type="text" class="names" placeholder="tele userName, name, name">
+                <input type="date" class="dateOfCleaning">
 
 
-<button class="send" id="sendFinished">ارسال</button>
-</div>
+                <button class="send" id="sendFinished">ارسال</button>
+            </div>
 
-<div id="makeFinished">
-<h4>زراعة المكان المحدد </h4>
-<span></span>
-<label for="addAImgs">بعد</label>
-<input type="file" id="addAImgs" name="addAImgs" class="addAImgs" multiple>
-<input type="text" class="names" placeholder="name, userName,
-name, userName">
+            <div id="makeFinished">
+                <h4>نمظيف المكان المحدد </h4>
+                <span></span>
+                <label for="addAImgs">بعد</label>
+                <input type="file" id="addAImgs" name="addAImgs" class="addAImgs" multiple>
+                <input type="text" class="names" placeholder="name, userName,
+                name, userName">
 
-<input type="text" placeholder="تفاصيل اضافية: نوع و عدد النباتات, ..." class="moreDetails">
-<input type="date" class="dateOfPlanting">
+                <input type="date" class="dateOfCleaning">
 
-<button class="send" id="sendFinishing" disabled="true">ارسال</button>
-</div>
+                <button class="send" id="sendFinishing" disabled="true">ارسال</button>
+            </div>
 `
 document.querySelector("footer").innerHTML = `
 <div class="features">
 <span class="black"></span>
 <h2>مميزات الموقع: الغرض و الاستخدام </h2>
 <div> <img src="./لقطة الشاشة 2022-06-23 185255.png" alt=""> توثيق
-    حملات التشجير المنتهية و القادمة</div>
+    حملات التنظيف المنتهية و القادمة</div>
 <div> <img src="./لقطة الشاشة 2022-06-23 185458.png" alt=""><img src="./marker-icon-2x-green.png"
         alt=""><img src="./marker-icon-2x-red.png" alt=""> اضافة
     علامات </div>
-<div><img src="./لقطة الشاشة 2022-06-23 185510.png" alt="">
-<img src="./marker-icon-2x-red.png" alt=""> زراعة
+<div>
+<img src="./marker-icon-2x-green.png" alt="">
+<img src="./download-removebg-preview.png" alt="">
+
+    <img src="./لقطة الشاشة 2022-06-23 185510.png" alt="">
+    <img src="./marker-icon-2x-red.png" alt="">
+    تنظيف
     مكان محدد </div>
 </div>
 <div id="info">
 <div class="achievements">
     <span class="green"></span>
     <h2>نتائج المشروع</h2>
-    <li>تم زراعتها <img src="./marker-icon-2x-green.png" alt=""><b>1</b></li>
-    <li>تحتاج الى زراعة <img src="./marker-icon-2x-red.png" alt=""> <b>2</b></li>
+    <li>مناطق تم تنظيفها <img src="./marker-icon-2x-green.png" alt=""><b>1</b></li>
+    <li>تحتاج الى تنظيف <img src="./marker-icon-2x-red.png" alt=""> <b>2</b></li>
     <li>عدد المساهمين: ؟؟</li>
     <img src="./284807325_340145658273227_1050030653915922194_n.jpg" alt="">
 </div>
@@ -578,7 +582,7 @@ document.querySelector("footer").innerHTML = `
             src="./instagram-round-icon-vector-instagram-round-multicolor-icon-white-background-134391805.jpg"
             alt=""></a>
     <a href="t.me/kadum0">
-        <img src="./telegram-logo.png" alt="">
+        <img src="./Telegram-Logo.png" alt="">
     </a>
     <!-- <p>facebook</p> -->
     <p>email; kadom1230@gmail.com</p>
@@ -587,24 +591,24 @@ document.querySelector("footer").innerHTML = `
 
 <div class="additionalInfo">
 <ul>
-    <li><img src="../marker-icon-2x-green.png">تم زراعته</li>
-    <li><img src="../marker-icon-2x-red.png">يحتاج الى زراعة</li>
+    <li><img src="../marker-icon-2x-green.png">تم تنظيف</li>
+    <li><img src="../marker-icon-2x-red.png">يحتاج الى تنظيف</li>
     <li><img src="../marker-icon-2x-yellow.png">مكان الحملة القادمة</li>
     <li>*بعد اضافة مكان و ارساله مع الصور فان هذا المكان لا يوضع على الخريطة مباشرة, بل يتم ارساله الى ادمن
         (فريق
-        التشجير) ليقوم بتوثيقه و اضافته على الخريطة</li>
+        التنظيف) ليقوم بتوثيقه و اضافته على الخريطة</li>
     <li> @name = telegram username
     </li>
-    <li>صور بعد التشجير يجب ان تكون بنفس زوايا صور قبل التشجير للتأكد ان
+    <li>صور بعد التنظيف يجب ان تكون بنفس زوايا صور قبل التنظيف للتأكد ان
         هذا نفس المكان
     </li>
     <li class="redli">
-    الموقع هاذ هو منصة: يعني بي طرفين: المستخدمين و الادمنز,
-    المستخدم يرسل البيانات و الادمن عندة صلاحية توثيق او حذف
-    البيانات, الادمن غالبا يكون فريق تطوعي الة علاقة او خبرة بالخدمة
-    اللي جاي يسويها الموقع: فأي فريق تطوعي يريد يسجل كأدمن يكدر
-    يتواصل ويانة للحصول
-</li>
+        الموقع هاذ هو منصة: يعني بي طرفين: المستخدمين و الادمنز,
+        المستخدم يرسل البيانات و الادمن عندة صلاحية توثيق او حذف
+        البيانات, الادمن غالبا يكون فريق تطوعي الة علاقة او خبرة بالخدمة
+        اللي جاي يسويها الموقع: فأي فريق تطوعي يريد يسجل كأدمن يكدر
+        يتواصل ويانة للحصول
+    </li>
 
 </ul>
 </div>
@@ -663,7 +667,7 @@ document.querySelectorAll(".send").forEach(ee=>{
             /////more details; 
             if(aChildren.find(e=>e.getAttribute("class") == "moreDetails")){
                 fd.append("moreDetails", aChildren.find(e=>e.getAttribute("class") == "moreDetails").value)
-                fd.append("dateOfPlanting", aChildren.find(e=>e.getAttribute("class") == "dateOfPlanting").value)
+                fd.append("dateOfCleaning", aChildren.find(e=>e.getAttribute("class") == "dateOfCleaning").value)
             }
     
             console.log(fd)
@@ -702,7 +706,7 @@ document.querySelectorAll(".send").forEach(ee=>{
 
         if(aChildren.find(e=>e.getAttribute("class") == "moreDetails")){
             aChildren.find(e=>e.getAttribute("class") == "moreDetails"). value = ""
-            aChildren.find(e=>e.getAttribute("class") == "dateOfPlanting").value = ""
+            aChildren.find(e=>e.getAttribute("class") == "dateOfCleaning").value = ""
         }
 
         }else{

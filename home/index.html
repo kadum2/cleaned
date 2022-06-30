@@ -72,7 +72,7 @@
 
         <div class="form" id="add">
             <div id="addUnfinished">
-                <h4>اضافة مكان يحتاج الى زراعة </h4>
+                <h4>اضافة مكان يحتاج الى تنظيف </h4>
                 <button class="addCoords" id="addUnconUnfinishedCoords">تحديد مكان</button>
                 <label for="addBImgs">اضافة صور للمكان</label>
                 <input type="file" id="addBImgs" name="addBImgs" class="addBImgs" multiple>
@@ -82,7 +82,7 @@
             </div>
 
             <div id="addFinished">
-                <h4>اضافة مكان تم زراعته </h4>
+                <h4>اضافة مكان تم تنظيفه </h4>
                 <button class="addCoords" id="addUnconFinishedCoords">تحديد مكان</button>
                 <label for="addAAImgs">بعد</label>
                 <input type="file" id="addAAImgs" name="addAAImgs" class="addAImgs" multiple>
@@ -91,8 +91,6 @@
                 <input type="file" id="addBBImgs" name="addBBImgs" class="addBImgs" multiple>
 
                 <input type="text" class="names" placeholder="tele userName, name, name">
-
-                <input type="text" placeholder="تفاصيل اضافية: نوع و عدد النباتات, ..." class="moreDetails">
                 <input type="date" class="dateOfPlanting">
 
 
@@ -100,14 +98,13 @@
             </div>
 
             <div id="makeFinished">
-                <h4>زراعة المكان المحدد </h4>
+                <h4>نمظيف المكان المحدد </h4>
                 <span></span>
                 <label for="addAImgs">بعد</label>
                 <input type="file" id="addAImgs" name="addAImgs" class="addAImgs" multiple>
                 <input type="text" class="names" placeholder="name, userName,
                 name, userName">
 
-                <input type="text" placeholder="تفاصيل اضافية: نوع و عدد النباتات, ..." class="moreDetails">
                 <input type="date" class="dateOfPlanting">
 
                 <button class="send" id="sendFinishing" disabled="true">ارسال</button>
@@ -123,21 +120,24 @@
             <span class="black"></span>
             <h2>مميزات الموقع: الغرض و الاستخدام </h2>
             <div> <img src="./لقطة الشاشة 2022-06-23 185255.png" alt=""> توثيق
-                حملات التشجير المنتهية و القادمة</div>
+                حملات التنظيف المنتهية و القادمة</div>
             <div> <img src="./لقطة الشاشة 2022-06-23 185458.png" alt=""><img src="./marker-icon-2x-green.png"
                     alt=""><img src="./marker-icon-2x-red.png" alt=""> اضافة
                 علامات </div>
-            <div><img src="./لقطة الشاشة 2022-06-23 185510.png" alt="">
+            <div>
+                <img src="./marker-icon-2x-green.png" alt="">
+                <img src="./download-removebg-preview.png" alt="">
+                <img src="./لقطة الشاشة 2022-06-23 185510.png" alt="">
                 <img src="./marker-icon-2x-red.png" alt="">
-                زراعة
+                تنظيف
                 مكان محدد </div>
         </div>
         <div id="info">
             <div class="achievements">
                 <span class="green"></span>
                 <h2>نتائج المشروع</h2>
-                <li>تم زراعتها <img src="./marker-icon-2x-green.png" alt=""><b>1</b></li>
-                <li>تحتاج الى زراعة <img src="./marker-icon-2x-red.png" alt=""> <b>2</b></li>
+                <li>مناطق تم تنظيفها <img src="./marker-icon-2x-green.png" alt=""><b>1</b></li>
+                <li>تحتاج الى تنظيف <img src="./marker-icon-2x-red.png" alt=""> <b>2</b></li>
                 <li>عدد المساهمين: ؟؟</li>
                 <img src="./284807325_340145658273227_1050030653915922194_n.jpg" alt="">
             </div>
@@ -157,15 +157,15 @@
 
         <div class="additionalInfo">
             <ul>
-                <li><img src="../marker-icon-2x-green.png">تم زراعته</li>
-                <li><img src="../marker-icon-2x-red.png">يحتاج الى زراعة</li>
+                <li><img src="../marker-icon-2x-green.png">تم تنظيف</li>
+                <li><img src="../marker-icon-2x-red.png">يحتاج الى تنظيف</li>
                 <li><img src="../marker-icon-2x-yellow.png">مكان الحملة القادمة</li>
                 <li>*بعد اضافة مكان و ارساله مع الصور فان هذا المكان لا يوضع على الخريطة مباشرة, بل يتم ارساله الى ادمن
                     (فريق
-                    التشجير) ليقوم بتوثيقه و اضافته على الخريطة</li>
+                    التنظيف) ليقوم بتوثيقه و اضافته على الخريطة</li>
                 <li> @name = telegram username
                 </li>
-                <li>صور بعد التشجير يجب ان تكون بنفس زوايا صور قبل التشجير للتأكد ان
+                <li>صور بعد التنظيف يجب ان تكون بنفس زوايا صور قبل التنظيف للتأكد ان
                     هذا نفس المكان
                 </li>
                 <li class="redli">
