@@ -227,6 +227,8 @@ header {
             padding: 1rem;
             transition: .1s linear;
             display: inline-block;
+            max-width: 100%;
+
         }
         .features div:hover{
             background: rgb(52, 56, 54);
@@ -278,6 +280,7 @@ header {
         }
         #info img{
             height: 2rem;
+            max-width: 100%;
         }
 
 
@@ -416,9 +419,11 @@ header {
         flex-direction: column;
         font-size: 1.4rem;
     }
-    footer img{
-        width: auto;
+    #info img{
+        height: auto;
+        /* max-width: 100%; */
     }
+
 }
 
 
