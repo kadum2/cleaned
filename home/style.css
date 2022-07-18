@@ -150,13 +150,15 @@ header {
         }
 
         .suggest{
-            all: unset;
+            /* all: unset; */
+            text-decoration: none;
             /* background: #33a353; */
             background: #29D659;
             border-radius: .8rem;
             cursor: pointer;
             padding: .4rem;
             display: none;
+            color: black;
         }
         header {
             height: 15vh;
@@ -289,6 +291,11 @@ header {
 
 
         /* elements */
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
 
         b{
             color:red;
